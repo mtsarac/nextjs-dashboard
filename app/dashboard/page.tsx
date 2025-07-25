@@ -4,6 +4,9 @@ import LatestInvoices from "@/app/ui/dashboard/latest-invoices";
 import { lusitana } from "@/app/ui/fonts";
 import { fetchCardData, fetchLatestInvoices, fetchRevenue } from "../lib/data";
 
+// Force dynamic rendering to avoid build-time database calls
+export const dynamic = "force-dynamic";
+
 export default async function Page() {
   const revenue = await fetchRevenue();
   const latestInvoices = await fetchLatestInvoices();
